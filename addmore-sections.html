@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table Dynamic</title>
+<style type="text/css">
+    body{font-family:"sans-serif";}
+    .button{ background-color: #007bff; color: #ffffff; font-size: 14px; font-weight: bold; border: none; margin: 0 5px;}
+    .mb-2{ margin-bottom: 20px;}
+</style>
+</head>
+<body>
+ 
+    <div class="main_section mb-2">
+        <div>
+        <input type="text" name="" class="inputFilter" value="Filter Name"><button class="button button-plus">+</button></div>
+         <div>
+        <input type="text" name="" class="inputValue1" value="Value 1"><button class="button button-plus">+</button></div>
+         <div>
+        <input type="text" name="" class="inputValue2" value="Value 2"><button class="button button-plus">+</button></div>
+        
+        <button type="button" onclick="addmoreSection()" class="button add-button">+</button>
+    </div>
+    
+    <div id="add_section">
+    
+    </div>
+    
+    
+</body>
+</html>
+
+
+<script type="text/javascript">
+    
+    
+
+    var addButton = document.getElementsByClassName("add-button");
+    var mainSection = document.getElementsByClassName("main_section");
+    var addSection = document.getElementById("add_section");   
+    var i=0;
+   
+    
+  function addmoreSection(){
+        i++;
+         var addingData = '<div class="main_section main_section_'+i+' mb-2"><div><input type="text" name="" class="inputFilter_'+i+'" value="Filter Name"><button class="button button-plus">+</button></div><div><input type="text" name="" class="inputValue1_'+i+'" value="Value 1"><button class="button button-plus">+</button></div><div><input type="text" name="" class="inputValue2_'+i+'" value="Value 2"><button class="button button-plus">+</button></div><button type="button" onclick="removeSection(event)" id="remove_button" class="button remove_button">- B'+i+'</button></div>';         
+        
+        document.getElementById("add_section").innerHTML += (addingData);  
+      
+       // var removeButton = document.getElementsByClassName('remove_button_'+i);
+        //var remove_class = document.getElementsByClassName('main_section_'+i);
+
+  
+  }  
+       
+      function removeSection(event){            
+            var remove_button = document.getElementById('remove_button');
+          //  console.log(remove_button.parentNode.remove());
+              var buttonClicked = event.target;
+                  buttonClicked.parentElement.remove();
+        } 
+  
+        
+    
+
+</script>
